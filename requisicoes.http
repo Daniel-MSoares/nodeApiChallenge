@@ -4,13 +4,22 @@ POST http://localhost:3333/courses
 Content-Type: application/json
 
 {
-  "title": "Curso de Dockerqddd"
+  "title": "Curso de Dart"
 }
 
 ###
-
+//todos os cursos
 GET http://localhost:3333/courses
-
 ###
 
-GET http://localhost:3333/courses/0c234dd7-0e9d-4c45-8793-e47316170d6e
+//curso com filtro
+
+GET http://localhost:3333/courses?search=dart
+###
+
+//todos os cursos com paginação
+GET http://localhost:3333/courses?page=1
+###
+###
+
+GET http://localhost:3333/courses/474c7100-88a5-4f45-8cfc-82fc94cf1f47

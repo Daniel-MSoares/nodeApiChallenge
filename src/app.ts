@@ -8,11 +8,11 @@ import {
   jsonSchemaTransform,
 } from "fastify-type-provider-zod";
 
-import { getCoursesRoute } from "./src/routes/get-courses.ts";
-import { getCourseByIdRoute } from "./src/routes/get-course-by-id.ts";
-import { createCourseRoute } from "./src/routes/create-course.ts";
+import { getCoursesRoute } from "./routes/get-courses.ts";
+import { getCourseByIdRoute } from "./routes/get-course-by-id.ts";
+import { createCourseRoute } from "./routes/create-course.ts";
 
-const server = fastify({
+export const server = fastify({
   logger: {
     transport: {
       target: "pino-pretty",
@@ -47,7 +47,3 @@ if (process.env.NODE_ENV === "development") {
 server.register(createCourseRoute);
 server.register(getCoursesRoute);
 server.register(getCourseByIdRoute);
-
-server.listen({ port: 3333 }).then(() => {
-  console.log("HTTP server running!");
-});
